@@ -1,0 +1,593 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Simple API Restaurant",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/allergens": {
+            "get": {
+                "summary": "List all allergens",
+                "description": "Return a list of Allergens",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create one Allergen",
+                "description": "Create a allergen resource",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Title of Allergen",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity, validation fails."
+                    }
+                }
+            }
+        },
+        "/allergens/{allergen}": {
+            "get": {
+                "summary": "Read one Allergen",
+                "description": "Return a Allergen resource",
+                "parameters": [
+                    {
+                        "name": "allergen",
+                        "in": "path",
+                        "description": "Id of allergen",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update one Allergen",
+                "description": "Update an Allergen and return name.",
+                "parameters": [
+                    {
+                        "name": "allergen",
+                        "in": "path",
+                        "description": "Id of allergen",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Title of allergen",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity, validation fails."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete one Allergen.",
+                "description": "A allergen resource will be deleted",
+                "parameters": [
+                    {
+                        "name": "allergen",
+                        "in": "path",
+                        "description": "Id of allergen",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Resource deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/ingredients": {
+            "get": {
+                "summary": "List all ingredients",
+                "description": "Return a list of Ingredients",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create one Ingredient",
+                "description": "Return a Ingredients name and description",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Title of ingredient",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity, validation fails."
+                    }
+                }
+            }
+        },
+        "/ingredients/{ingredient}": {
+            "get": {
+                "summary": "Read one Ingredient",
+                "description": "Return a Ingredient resource",
+                "parameters": [
+                    {
+                        "name": "ingredient",
+                        "in": "path",
+                        "description": "Id of ingredient",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update one Ingredent",
+                "description": "Return a Ingredent name and description",
+                "parameters": [
+                    {
+                        "name": "ingredient",
+                        "in": "path",
+                        "description": "Id of ingredient",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Title of ingredient",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "query",
+                        "description": "Body of ingredient",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity, validation fails."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete one Ingredent.",
+                "description": "A ingredient resource will be deleted",
+                "parameters": [
+                    {
+                        "name": "ingredient",
+                        "in": "path",
+                        "description": "Id of ingredient",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Resource deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/meals/{meal}/allergens": {
+            "get": {
+                "summary": "List all allergens associated with the meal",
+                "description": "Return a list of allergens",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            }
+        },
+        "meals/{meal}/allergens/{allergen}": {
+            "get": {
+                "summary": "Read one allergen",
+                "description": "Show the specific allergen associated to a meal.",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "allergen",
+                        "in": "path",
+                        "description": "Id of allergen",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            }
+        },
+        "/meals/{meal}/allergens/{allergen}": {
+            "post": {
+                "summary": "Create one meal",
+                "description": "Create a new association between meal and allergen resource",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "allergen",
+                        "in": "path",
+                        "description": "Id of allergen",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete one meal.",
+                "description": "A meal resource will be deleted",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "allergen",
+                        "in": "path",
+                        "description": "Id of allergen",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Resource deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/meals": {
+            "get": {
+                "summary": "List all meals",
+                "description": "Return a list of meals",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create one meal",
+                "description": "Create a meal resource",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Title of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "Description of meal",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity, validation fails."
+                    }
+                }
+            }
+        },
+        "/meals/{meal}": {
+            "get": {
+                "summary": "Read one meal",
+                "description": "Return a meal resource",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update one meal",
+                "description": "Update a meal and return a meal name and description.",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Mame of meal",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "Description of meal",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity, validation fails."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete one meal.",
+                "description": "A meal resource will be deleted",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Resource deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/meals/{meal}/ingredients": {
+            "get": {
+                "summary": "List all ingredients associated with the meal",
+                "description": "Return a list of ingredients",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            }
+        },
+        "meals/{meal}/ingredients/{ingredient}": {
+            "get": {
+                "summary": "Read one ingredient",
+                "description": "Show the specific ingredient associated to a meal.",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ingredient",
+                        "in": "path",
+                        "description": "Id of ingredient",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Please provide correct data"
+                    }
+                }
+            }
+        },
+        "/meals/{meal}/ingredients/{ingredient}": {
+            "post": {
+                "summary": "Create one meal",
+                "description": "Create a new association between meal and ingredient resource",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ingredient",
+                        "in": "path",
+                        "description": "Id of ingredient",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete one meal.",
+                "description": "A meal resource will be deleted",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "path",
+                        "description": "Id of meal",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ingredient",
+                        "in": "path",
+                        "description": "Id of ingredient",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Resource deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

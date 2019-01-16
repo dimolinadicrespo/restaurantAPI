@@ -1,0 +1,40 @@
+
+https://github.com/DarkaOnLine/L5-Swagger
+
+
+I am still using Swagger @SWG annotation
+
+If still using Swagger @SWG annotations in you project you should:
+
+    Explicitly require swagger-php version 2.* in your projects composer by running:
+
+composer require 'zircote/swagger-php:2.*'
+
+    Set environment variable SWAGGER_VERSION to 2.0 in your .env file:
+
+SWAGGER_VERSION=2.0
+
+or in your config/l5-swagger.php:
+
+'swagger_version' => env('SWAGGER_VERSION', '2.0'),
+
+
+
+
+- Tratado de Recursos not Found
+
+
+	- Exception/Handler.php 
+			 - Añadimos método render
+
+
+	- Route/api.php				
+		 
+				Route::fallback(function(){
+				    return response()->json(['message' => 'Data Not Found!'], 404);
+				})->name('fallback');
+
+
+
+
+https://www.kennethlange.com/write-beautiful-rest-documentation-with-swagger/				
