@@ -25,10 +25,10 @@ Route::post(  'ingredients',                            'IngredientController@st
 Route::put(   'ingredients/{ingredient}',               'IngredientController@update')			->name('api.ingredients.update');
 Route::delete('ingredients/{ingredient}',               'IngredientController@delete')			->name('api.ingredients.delete');
 //Allergen
-Route::get(		'allergens',                              'AllergenController@index') 			->name('api.allergens.index');
-Route::get(		'allergens/{allergen}',                   'AllergenController@show')  			->name('api.allergens.show');
-Route::post(	'allergens',                              'AllergenController@store') 			->name('api.allergens.store');
-Route::put(		'allergens/{allergen}',                   'AllergenController@update')			->name('api.allergens.update');
+Route::get(	  'allergens',                              'AllergenController@index') 			    ->name('api.allergens.index');
+Route::get(	  'allergens/{allergen}',                   'AllergenController@show')  			    ->name('api.allergens.show');
+Route::post(  'allergens',                              'AllergenController@store') 			    ->name('api.allergens.store');
+Route::put(	  'allergens/{allergen}',                   'AllergenController@update')			    ->name('api.allergens.update');
 Route::delete('allergens/{allergen}',                   'AllergenController@delete')	            ->name('api.allergens.delete');
 // Add / Remove Ingredients to Meals
 Route::get(   'meals/{meal}/ingredients',               'MealIngredientsController@index')       ->name('api.meals.ingredients.index');
