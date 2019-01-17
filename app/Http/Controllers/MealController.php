@@ -11,6 +11,7 @@ class MealController extends Controller
     /**
      * @SWG\Get(
      *     path="/meals",
+     *     tags={"meals"},
      *     description="Return a list of meals",
      *     summary="List all meals",
      *     @SWG\Response(
@@ -37,6 +38,7 @@ class MealController extends Controller
     /**
      * @SWG\Get(
      *     path="/meals/{meal}",
+     *     tags={"meals"},
      *     description="Return a meal resource",
      *     summary="Read one meal",
      *     @SWG\Parameter(
@@ -70,6 +72,7 @@ class MealController extends Controller
     /**
      * @SWG\Post(
      *     path="/meals",
+     *     tags={"meals"},
      *     description="Create a meal resource",
      *     summary="Create one meal",
      *     @SWG\Parameter(
@@ -87,7 +90,7 @@ class MealController extends Controller
      *         required=true,
      *     ),
      *     @SWG\Response(
-     *         response=200,
+     *         response=201,
      *         description="OK",
      *     ),
      *     @SWG\Response(
@@ -116,6 +119,7 @@ class MealController extends Controller
     /**
      * @SWG\Put(
      *     path="/meals/{meal}",
+     *     tags={"meals"},
      *     description="Update a meal and return a meal name and description.",
      *     summary="Update one meal",
      *     @SWG\Parameter(
@@ -169,6 +173,7 @@ class MealController extends Controller
     /**
      * @SWG\Delete(
      *     path="/meals/{meal}",
+     *     tags={"meals"},
      *     description="A meal resource will be deleted",
      *     summary="Delete one meal.",
      *     @SWG\Parameter(

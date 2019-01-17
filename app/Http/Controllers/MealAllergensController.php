@@ -11,6 +11,7 @@ class MealAllergensController extends Controller
     /**
      * @SWG\Get(
      *     path="/meals/{meal}/allergens",
+     *     tags={"Associate allergen to meal"},
      *     description="Return a list of allergens",
      *     summary="List all allergens associated with the meal",
      *     @SWG\Parameter(
@@ -42,7 +43,8 @@ class MealAllergensController extends Controller
 
     /**
      * @SWG\Get(
-     *     path="meals/{meal}/allergens/{allergen}",
+     *     path="/meals/{meal}/allergens/{allergen}",
+     *     tags={"Associate allergen to meal"},
      *     description="Show the specific allergen associated to a meal.",
      *     summary="Read one allergen",
      *     @SWG\Parameter(
@@ -77,15 +79,17 @@ class MealAllergensController extends Controller
     public function show(Meal $meal, Allergen $allergen)
     {
         return AllergenOnMealResource::collection($meal->allergens()->where([
-            'assigned_meal_id' => $allergen->id
+            'assigned_meal_id' => $allergen->id,
+            'assigned_meal_type' => get_class($allergen)
         ])->get());
     }
 
     /**
      * @SWG\Post(
      *     path="/meals/{meal}/allergens/{allergen}",
+     *     tags={"Associate allergen to meal"},
      *     description="Create a new association between meal and allergen resource",
-     *     summary="Create one meal",
+     *     summary="Associate allergen to one meal",
      *     @SWG\Parameter(
      *         name="meal",
      *         in="path",
@@ -129,8 +133,9 @@ class MealAllergensController extends Controller
     /**
      * @SWG\Delete(
      *     path="/meals/{meal}/allergens/{allergen}",
+     *     tags={"Associate allergen to meal"},
      *     description="A meal resource will be deleted",
-     *     summary="Delete one meal.",
+     *     summary="Disassociation one allergen of one  meal.",
      *     @SWG\Parameter(
      *         name="meal",
      *         in="path",

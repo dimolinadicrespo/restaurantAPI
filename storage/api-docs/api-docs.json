@@ -8,7 +8,10 @@
     "paths": {
         "/allergens": {
             "get": {
-                "summary": "List all allergens",
+                "tags": [
+                    "allergens"
+                ],
+                "summary": "Lists all allergens with their associated meals",
                 "description": "Return a list of Allergens",
                 "responses": {
                     "200": {
@@ -20,6 +23,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "allergens"
+                ],
                 "summary": "Create one Allergen",
                 "description": "Create a allergen resource",
                 "parameters": [
@@ -32,11 +38,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "OK"
-                    },
-                    "404": {
-                        "description": "Not found"
                     },
                     "422": {
                         "description": "Unprocessable Entity, validation fails."
@@ -46,6 +49,9 @@
         },
         "/allergens/{allergen}": {
             "get": {
+                "tags": [
+                    "allergens"
+                ],
                 "summary": "Read one Allergen",
                 "description": "Return a Allergen resource",
                 "parameters": [
@@ -67,6 +73,9 @@
                 }
             },
             "put": {
+                "tags": [
+                    "allergens"
+                ],
                 "summary": "Update one Allergen",
                 "description": "Update an Allergen and return name.",
                 "parameters": [
@@ -78,7 +87,7 @@
                         "type": "string"
                     },
                     {
-                        "name": "title",
+                        "name": "name",
                         "in": "query",
                         "description": "Title of allergen",
                         "required": false,
@@ -98,6 +107,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "allergens"
+                ],
                 "summary": "Delete one Allergen.",
                 "description": "A allergen resource will be deleted",
                 "parameters": [
@@ -121,7 +133,10 @@
         },
         "/ingredients": {
             "get": {
-                "summary": "List all ingredients",
+                "tags": [
+                    "ingredients"
+                ],
+                "summary": "Lists all allergens with their associated meals",
                 "description": "Return a list of Ingredients",
                 "responses": {
                     "200": {
@@ -133,6 +148,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "ingredients"
+                ],
                 "summary": "Create one Ingredient",
                 "description": "Return a Ingredients name and description",
                 "parameters": [
@@ -145,11 +163,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "OK"
-                    },
-                    "404": {
-                        "description": "Not found"
                     },
                     "422": {
                         "description": "Unprocessable Entity, validation fails."
@@ -159,6 +174,9 @@
         },
         "/ingredients/{ingredient}": {
             "get": {
+                "tags": [
+                    "ingredients"
+                ],
                 "summary": "Read one Ingredient",
                 "description": "Return a Ingredient resource",
                 "parameters": [
@@ -180,6 +198,9 @@
                 }
             },
             "put": {
+                "tags": [
+                    "ingredients"
+                ],
                 "summary": "Update one Ingredent",
                 "description": "Return a Ingredent name and description",
                 "parameters": [
@@ -191,16 +212,9 @@
                         "type": "string"
                     },
                     {
-                        "name": "title",
+                        "name": "name",
                         "in": "query",
-                        "description": "Title of ingredient",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "body",
-                        "in": "query",
-                        "description": "Body of ingredient",
+                        "description": "Name of ingredient",
                         "required": false,
                         "type": "string"
                     }
@@ -218,6 +232,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "ingredients"
+                ],
                 "summary": "Delete one Ingredent.",
                 "description": "A ingredient resource will be deleted",
                 "parameters": [
@@ -241,6 +258,9 @@
         },
         "/meals/{meal}/allergens": {
             "get": {
+                "tags": [
+                    "Associate allergen to meal"
+                ],
                 "summary": "List all allergens associated with the meal",
                 "description": "Return a list of allergens",
                 "parameters": [
@@ -262,8 +282,11 @@
                 }
             }
         },
-        "meals/{meal}/allergens/{allergen}": {
+        "/meals/{meal}/allergens/{allergen}": {
             "get": {
+                "tags": [
+                    "Associate allergen to meal"
+                ],
                 "summary": "Read one allergen",
                 "description": "Show the specific allergen associated to a meal.",
                 "parameters": [
@@ -290,11 +313,12 @@
                         "description": "Please provide correct data"
                     }
                 }
-            }
-        },
-        "/meals/{meal}/allergens/{allergen}": {
+            },
             "post": {
-                "summary": "Create one meal",
+                "tags": [
+                    "Associate allergen to meal"
+                ],
+                "summary": "Associate allergen to one meal",
                 "description": "Create a new association between meal and allergen resource",
                 "parameters": [
                     {
@@ -322,7 +346,10 @@
                 }
             },
             "delete": {
-                "summary": "Delete one meal.",
+                "tags": [
+                    "Associate allergen to meal"
+                ],
+                "summary": "Disassociation one allergen of one  meal.",
                 "description": "A meal resource will be deleted",
                 "parameters": [
                     {
@@ -352,6 +379,9 @@
         },
         "/meals": {
             "get": {
+                "tags": [
+                    "meals"
+                ],
                 "summary": "List all meals",
                 "description": "Return a list of meals",
                 "responses": {
@@ -364,6 +394,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "meals"
+                ],
                 "summary": "Create one meal",
                 "description": "Create a meal resource",
                 "parameters": [
@@ -383,7 +416,7 @@
                     }
                 ],
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "OK"
                     },
                     "404": {
@@ -397,6 +430,9 @@
         },
         "/meals/{meal}": {
             "get": {
+                "tags": [
+                    "meals"
+                ],
                 "summary": "Read one meal",
                 "description": "Return a meal resource",
                 "parameters": [
@@ -418,6 +454,9 @@
                 }
             },
             "put": {
+                "tags": [
+                    "meals"
+                ],
                 "summary": "Update one meal",
                 "description": "Update a meal and return a meal name and description.",
                 "parameters": [
@@ -456,6 +495,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "meals"
+                ],
                 "summary": "Delete one meal.",
                 "description": "A meal resource will be deleted",
                 "parameters": [
@@ -479,6 +521,9 @@
         },
         "/meals/{meal}/ingredients": {
             "get": {
+                "tags": [
+                    "Associate ingredient to meal"
+                ],
                 "summary": "List all ingredients associated with the meal",
                 "description": "Return a list of ingredients",
                 "parameters": [
@@ -500,9 +545,12 @@
                 }
             }
         },
-        "meals/{meal}/ingredients/{ingredient}": {
+        "/meals/{meal}/ingredients/{ingredient}": {
             "get": {
-                "summary": "Read one ingredient",
+                "tags": [
+                    "Associate ingredient to meal"
+                ],
+                "summary": "Read one ingredient associate to a meal",
                 "description": "Show the specific ingredient associated to a meal.",
                 "parameters": [
                     {
@@ -528,11 +576,12 @@
                         "description": "Please provide correct data"
                     }
                 }
-            }
-        },
-        "/meals/{meal}/ingredients/{ingredient}": {
+            },
             "post": {
-                "summary": "Create one meal",
+                "tags": [
+                    "Associate ingredient to meal"
+                ],
+                "summary": "Associate one ingredient associate to meal",
                 "description": "Create a new association between meal and ingredient resource",
                 "parameters": [
                     {
@@ -560,7 +609,10 @@
                 }
             },
             "delete": {
-                "summary": "Delete one meal.",
+                "tags": [
+                    "Associate ingredient to meal"
+                ],
+                "summary": "Disassociation one allergen of one  meal.",
                 "description": "A meal resource will be deleted",
                 "parameters": [
                     {

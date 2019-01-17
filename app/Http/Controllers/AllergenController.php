@@ -11,8 +11,9 @@ class AllergenController extends Controller
     /**
      * @SWG\Get(
      *     path="/allergens",
+     *     tags={"allergens"},
      *     description="Return a list of Allergens",
-     *     summary="List all allergens",
+     *     summary="Lists all allergens with their associated meals",
      *     @SWG\Response(
      *         response=200,
      *         description="OK",
@@ -37,6 +38,7 @@ class AllergenController extends Controller
     /**
      * @SWG\Get(
      *     path="/allergens/{allergen}",
+     *     tags={"allergens"},
      *     description="Return a Allergen resource",
      *     summary="Read one Allergen",
      *     @SWG\Parameter(
@@ -70,6 +72,7 @@ class AllergenController extends Controller
     /**
      * @SWG\Post(
      *     path="/allergens",
+     *     tags={"allergens"},
      *     description="Create a allergen resource",
      *     summary="Create one Allergen",
      *     @SWG\Parameter(
@@ -80,12 +83,8 @@ class AllergenController extends Controller
      *         required=true,
      *     ),
      *     @SWG\Response(
-     *         response=200,
+     *         response=201,
      *         description="OK",
-     *     ),
-     *     @SWG\Response(
-     *         response=404,
-     *         description="Not found"
      *     ),
      *     @SWG\Response(
      *         response=422,
@@ -107,6 +106,7 @@ class AllergenController extends Controller
     /**
      * @SWG\Put(
      *     path="/allergens/{allergen}",
+     *     tags={"allergens"},
      *     description="Update an Allergen and return name.",
      *     summary="Update one Allergen",
      *     @SWG\Parameter(
@@ -117,7 +117,7 @@ class AllergenController extends Controller
      *         required=true,
      *     ),
      *     @SWG\Parameter(
-     *         name="title",
+     *         name="name",
      *         in="query",
      *         type="string",
      *         description="Title of allergen",
@@ -152,6 +152,7 @@ class AllergenController extends Controller
     /**
      * @SWG\Delete(
      *     path="/allergens/{allergen}",
+     *     tags={"allergens"},
      *     description="A allergen resource will be deleted",
      *     summary="Delete one Allergen.",
      *     @SWG\Parameter(

@@ -11,8 +11,9 @@ class IngredientController extends Controller
     /**
     * @SWG\Get(
     *     path="/ingredients",
+    *     tags={"ingredients"},
     *     description="Return a list of Ingredients",
-    *     summary="List all ingredients",
+    *     summary="Lists all allergens with their associated meals",
     *     @SWG\Response(
     *         response=200,
     *         description="OK",
@@ -37,6 +38,7 @@ class IngredientController extends Controller
     /**
     * @SWG\Get(
     *     path="/ingredients/{ingredient}",
+    *     tags={"ingredients"},
     *     description="Return a Ingredient resource",
     *     summary="Read one Ingredient",
     *     @SWG\Parameter(
@@ -70,6 +72,7 @@ class IngredientController extends Controller
     /**
      * @SWG\Post(
      *     path="/ingredients",
+     *     tags={"ingredients"},
      *     description="Return a Ingredients name and description",
      *     summary="Create one Ingredient",
      *     @SWG\Parameter(
@@ -80,12 +83,8 @@ class IngredientController extends Controller
      *         required=true,
      *     ),
      *     @SWG\Response(
-     *         response=200,
+     *         response=201,
      *         description="OK",
-     *     ),
-     *     @SWG\Response(
-     *         response=404,
-     *         description="Not found"
      *     ),
      *     @SWG\Response(
      *         response=422,
@@ -109,6 +108,7 @@ class IngredientController extends Controller
     /**
      * @SWG\Put(
      *     path="/ingredients/{ingredient}",
+     *     tags={"ingredients"},
      *     description="Return a Ingredent name and description",
      *     summary="Update one Ingredent",
      *     @SWG\Parameter(
@@ -119,17 +119,10 @@ class IngredientController extends Controller
      *         required=true,
      *     ),
      *     @SWG\Parameter(
-     *         name="title",
+     *         name="name",
      *         in="query",
      *         type="string",
-     *         description="Title of ingredient",
-     *         required=false,
-     *     ),
-     *     @SWG\Parameter(
-     *         name="body",
-     *         in="query",
-     *         type="string",
-     *         description="Body of ingredient",
+     *         description="Name of ingredient",
      *         required=false,
      *     ),
      *     @SWG\Response(
@@ -161,6 +154,7 @@ class IngredientController extends Controller
     /**
      * @SWG\Delete(
      *     path="/ingredients/{ingredient}",
+     *     tags={"ingredients"},
      *     description="A ingredient resource will be deleted",
      *     summary="Delete one Ingredent.",
      *     @SWG\Parameter(
