@@ -77,7 +77,7 @@ class MealAllergensController extends Controller
     public function show(Meal $meal, Allergen $allergen)
     {
         return AllergenOnMealResource::collection($meal->allergens()->where([
-            'assigned_meals_id' => $allergen->id
+            'assigned_meal_id' => $allergen->id
         ])->get());
     }
 
@@ -119,8 +119,8 @@ class MealAllergensController extends Controller
     public function store(Meal $meal, Allergen $allergen)
     {
         $meal->allergens()->attach([
-            'assigned_meals'   => $allergen->id,
-            'assigned_meals_type' => get_class($allergen)
+            'assigned_meal'   => $allergen->id,
+            'assigned_meal_type' => get_class($allergen)
         ]);
         return response()->json($allergen, 201);
     }

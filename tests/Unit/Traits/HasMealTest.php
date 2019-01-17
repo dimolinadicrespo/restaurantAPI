@@ -22,16 +22,16 @@ class HasMealTest extends TestCase
         $meal3 = factory(Meal::class)->create(['name' => 'Plato3']);
 
         $model->meals()->attach([
-            'assigned_meals'   => $meal1->id,
-            'assigned_meals_type' => get_class($meal1)
+            'assigned_meal'   => $meal1->id,
+            'assigned_meal_type' => get_class($meal1)
         ]);
         $model->meals()->attach([
-            'assigned_meals'   => $meal2->id,
-            'assigned_meals_type' => get_class($meal2)
+            'assigned_meal'   => $meal2->id,
+            'assigned_meal_type' => get_class($meal2)
         ]);
         $model->meals()->attach([
-            'assigned_meals'   => $meal3->id,
-            'assigned_meals_type' => get_class($meal3)
+            'assigned_meal'   => $meal3->id,
+            'assigned_meal_type' => get_class($meal3)
         ]);
 
         $this->assertInstanceOf(Meal::class, $model->meals->shift());

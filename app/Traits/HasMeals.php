@@ -9,6 +9,6 @@ trait HasMeals
     //Relations
     public function meals()
     {
-        return $this->morphToMany(Meal::class, 'assigned_meals');
+        return $this->morphToMany(Meal::class, 'assigned_meal');
     }
 }

@@ -16,8 +16,8 @@ class CreateAssignedMealsTable extends Migration
         Schema::create('assigned_meals', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('meal_id');
-            $table->integer('assigned_meals_id');
-            $table->string('assigned_meals_type');
+            $table->integer('assigned_meal_id');
+            $table->string('assigned_meal_type');
             $table->timestamps();
         });
     }

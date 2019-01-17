@@ -114,8 +114,8 @@ class AddAllergenToMealTest extends TestCase
 
         $this->assertDatabaseMissing('assigned_meals',[
             'meal_id'          => $meal1,
-            'assigned_meals'   => $allergen1->id,
-            'assigned_meals_type' => get_class($allergen1)
+            'assigned_meal'   => $allergen1->id,
+            'assigned_meal_type' => get_class($allergen1)
         ]);
     }
 

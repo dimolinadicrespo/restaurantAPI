@@ -77,7 +77,7 @@ class MealIngredientsController extends Controller
     public function show(Meal $meal, Ingredient $ingredient)
     {
         return IngredientOnMealResource::collection($meal->ingredients()->where([
-            'assigned_meals_id' => $ingredient->id
+            'assigned_meal_id' => $ingredient->id
         ])->get());
     }
 
@@ -119,8 +119,8 @@ class MealIngredientsController extends Controller
     public function store(Meal $meal, Ingredient $ingredient)
     {
         $meal->ingredients()->attach([
-            'assigned_meals'   => $ingredient->id,
-            'assigned_meals_type' => get_class($ingredient)
+            'assigned_meal'   => $ingredient->id,
+            'assigned_meal_type' => get_class($ingredient)
         ]);
         return response()->json($ingredient, 201);
     }

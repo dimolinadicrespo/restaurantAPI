@@ -16,7 +16,7 @@ class Meal extends Model
      */
     public function ingredients()
     {
-        return $this->morphedByMany(Ingredient::class, 'assigned_meals');
+        return $this->morphedByMany(Ingredient::class, 'assigned_meal');
     }
 
     /**
@@ -24,6 +24,6 @@ class Meal extends Model
      */
     public function allergens()
     {
-        return $this->morphedByMany(Allergen::class, 'assigned_meals');
+        return $this->morphedByMany(Allergen::class, 'assigned_meal');
     }
 }
