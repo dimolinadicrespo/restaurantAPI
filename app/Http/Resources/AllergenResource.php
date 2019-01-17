@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Allergen;
 
 class AllergenResource extends JsonResource
 {
@@ -17,7 +18,7 @@ class AllergenResource extends JsonResource
         return [
             'id' => $this->resource->id,
             'name' => $this->resource->name,
-            'meals' => MealResource::collection($this->resource->meals),
+            'meals' => MealOnAllergenResource::collection($this->meals),
         ];
     }
 }

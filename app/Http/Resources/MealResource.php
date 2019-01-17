@@ -18,8 +18,8 @@ class MealResource extends JsonResource
             'id'              => $this->resource->id,
             'name'            => $this->resource->name,
             'description'     => $this->resource->description,
-            'ingredients'     => IngredientResource::collection($this->resource->ingredients),
-            'allergens'       => AllergenResource::collection($this->resource->allergens),
+            'ingredients'     => IngredientOnMealResource::collection($this->ingredients),
+            'allergens'       => AllergenOnMealResource::collection($this->allergens),
         ];
     }
 }
