@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Models\Meal;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Resources\MealResource;
 
 class MealController extends Controller

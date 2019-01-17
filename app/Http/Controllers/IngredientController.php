@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Resources\IngredientResource;
 
 class IngredientController extends Controller
